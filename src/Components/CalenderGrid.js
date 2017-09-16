@@ -22,6 +22,7 @@ class CalenderGrid extends Component {
         this.year = d.getUTCFullYear();
         this.month = d.getUTCMonth();
     }
+
     weekCount(year, month) {
         // month_number is in the range 1..12
         const firstOfMonth = new Date(year, month-1, 1);
@@ -38,12 +39,15 @@ class CalenderGrid extends Component {
         }
         this.setState({calenderArray: this.calArray})
     }
+
     getFirstDayOfMonth(year, month) {
         return new Date(year + "-" + month + "-01").getDay();
     }
+
     getDaysInMonth(year, month) {
         return new Date(year, month, 0).getDate();
     }
+
     createCalenderArray () {
 
     }
