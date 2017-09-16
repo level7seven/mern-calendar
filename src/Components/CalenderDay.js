@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import style from '../style';
 
 
-class CalenderSquare extends Component {
+class CalenderDay extends Component {
     render () {
         return (
             <div></div>
@@ -13,4 +13,4 @@ class CalenderSquare extends Component {
     }
 }
 
-export default CalenderSquare
+export default CalenderDay
