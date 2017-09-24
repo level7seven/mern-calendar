@@ -11,7 +11,7 @@ class Calender extends Component {
         return (
             <div>
                 <h1>Calender Mern App</h1>
-                <Calender/>
+                <CalenderGrid/>
             </div>
         )
     }

@@ -8,7 +8,7 @@ import style from '../style';
 class CalenderDay extends Component {
     render () {
         return (
-            <div></div>
+            <td>{this.props.dayNo}</td>
         )
     }
 }
