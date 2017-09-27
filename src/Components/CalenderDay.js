@@ -7,8 +7,13 @@ import style from '../style';
 
 class CalenderDay extends Component {
     render () {
+        const { dayNo } = this.props;
         return (
-            <td>{this.props.dayNo}</td>
+            <td style={{...style.borderStyle}}>
+                <div>
+                    <div className="dayNumber">{dayNo !== 0 ? dayNo : '' }</div>
+                </div>
+            </td>
         )
     }
 }

@@ -56,9 +56,6 @@ class CalenderGrid extends Component {
         return new Date(year, month, 0).getDate();
     }
 
-    createCalenderArray () {
-
-    }
     loadNextMonth () {
 
     }
@@ -74,7 +71,7 @@ class CalenderGrid extends Component {
         );
         return (
             <div>
-                <table>
+                <table style = { style.calenderGrid }>
                     <thead>
                         <CalenderGridHeaders days = {this.days}/>
                     </thead>

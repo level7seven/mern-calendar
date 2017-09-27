@@ -9,7 +9,7 @@ class CalenderGridHeaders extends Component {
     render () {
         const headers = this.props.days.map(day => {
         return (
-            <th key={day}>{ day }</th>
+            <th style={{...style.calenderHeader, ...style.borderStyle}} key={day}>{ day }</th>
         )
     });
         return (

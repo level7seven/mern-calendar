@@ -24,7 +24,7 @@ class CalenderWeek extends Component {
     render () {
         const week = this.createFullWeek();
         return (
-            <tr>{ week }</tr>
+            <tr style={style.borderStyle}>{ week }</tr>
         )
     }
 }
