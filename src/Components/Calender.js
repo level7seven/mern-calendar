@@ -22,31 +22,37 @@ class Calender extends Component {
         // month_number is in the range 1..12
         // const firstOfMonth = new Date(year, month, 1);
         let calArray = [];
-        const firstOfDayOfMonth = this.getFirstDayOfMonth(year, month);
-        const lastOfDayOfMonth = new Date(year, month, 0).getDate();
+        const firstDayOfMonth = this.getFirstDayOfMonth(year, month);
+        const lastDayOfMonth = new Date(year, month, 0).getDate();
 
-        const used = firstOfDayOfMonth + lastOfDayOfMonth;
+        const used = firstDayOfMonth + lastDayOfMonth;
 
         const weeksInMonth = Math.ceil( used / 7);
         let dayCount = 1;
         for (let i = 0; i < weeksInMonth; i++) {
-            let newWeek = [];
-            for (let j = 1; j <= 7; j++) {
-                if (j === firstOfDayOfMonth) {
-                    newWeek.push(dayCount);
-                    dayCount++;
-                } else if ((dayCount === 1 && j !== firstOfDayOfMonth) || (dayCount > lastOfDayOfMonth)) {
-                    newWeek.push(0);
-                } else {
-                    newWeek.push(dayCount);
-                    dayCount++
-                }
-            }
+            debugger
+            let {newWeek, day} = this.createDays(firstDayOfMonth, dayCount, lastDayOfMonth);
+            dayCount = day;
             calArray.push(newWeek)
         }
         return calArray;
     }
 
+    createDays(firstDayOfMonth, day, lastDayOfMonth) {
+        let newWeek = [];
+        for (let j = 1; j <= 7; j++) {
+            if (j === firstDayOfMonth) {
+                newWeek.push(day);
+                day++;
+            } else if ((day === 1 && j !== firstDayOfMonth) || (day > lastDayOfMonth)) {
+                newWeek.push(0);
+            } else {
+                newWeek.push(day);
+                day++
+            }
+        }
+        return {newWeek, day}
+    }
     getFirstDayOfMonth(year, month) {
         return new Date(year + "-" + month + "-01").getDay();
     }
@@ -81,7 +87,7 @@ class Calender extends Component {
                         buttonType={'forwardBtn'}
                     />
                 </div>
-                <CalenderGrid/>
+                <CalenderGrid calenderArray={this.state.calenderArray}/>
             </div>
         )
     }
